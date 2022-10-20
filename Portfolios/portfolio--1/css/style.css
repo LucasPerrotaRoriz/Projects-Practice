@@ -1,0 +1,381 @@
+:root {
+  --background--1: rgb(25, 25, 25);
+  --background--2: rgb(10, 10, 10);
+
+  --primary-pink-color: rgb(249, 0, 77);
+  --primary-purple-color: rgb(255, 204, 255);
+  --secondary-pink-color: rgb(224, 0, 69);
+  --white-color: rgb(255, 255, 255);
+
+  --button-hover-color: rgb(224, 0, 69);
+
+  --letter-spacing-1: 1px;
+  --letter-spacing-2: 2px;
+  --letter-spacing-3: 3px;
+
+  --primary-transition: 0.4s;
+
+  --primary-border-radius: 3rem;
+}
+
+/* TABLE OF CONTENTS 
+    1-GLOBAL STYLES
+    2-UTILITY STYLES
+    3-HERO SECTION
+    4-ABOUT ME SECTION
+    5-SERVICES SECTION
+    6-CTA SECTION
+    7-FOOTER SECTION  
+    8-BUTTON   
+*/
+
+/***************************************** 
+------------- 1-GLOBAL STYLES --------------
+*****************************************/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: "Josefin Sans", sans-serif;
+
+  color: var(--white-color);
+}
+
+*:focus {
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/***************************************** 
+------------- 2-UTILITY STYLES --------------
+*****************************************/
+.highlight {
+  color: var(--primary-pink-color);
+}
+
+/***************************************** 
+------------ 3-HERO SECTION --------------
+*****************************************/
+.hero {
+  height: 100vh;
+  width: 100vw;
+
+  background-image: url(../img/background.jpg);
+  background-position: center;
+  background-size: cover;
+
+  padding-left: 8%;
+  padding-right: 8%;
+
+  position: relative;
+}
+
+.hero__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 2%;
+}
+
+.hero__logo {
+  font-size: 4rem;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: var(--letter-spacing-1);
+}
+
+.hero__navigation {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.hero__list {
+  list-style-type: none;
+
+  display: flex;
+  gap: 7rem;
+}
+
+.hero__link {
+  text-decoration: none;
+
+  transition: var(--primary-transition);
+}
+
+.hero__link:hover {
+  color: var(--primary-pink-color);
+}
+
+.hero__content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero__hello {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: var(--letter-spacing-3);
+
+  margin-bottom: 1.5rem;
+
+  color: var(--primary-purple-color);
+}
+
+.hero__heading {
+  font-size: 8rem;
+  letter-spacing: var(--letter-spacing-1);
+  
+  margin-bottom: 1rem;
+}
+
+.hero__heading + p {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: var(--letter-spacing-2);
+
+  margin-bottom: 4rem;
+}
+
+.hero__form {
+  width: 100%;
+}
+
+.hero__email {
+  font-family: inherit;
+  letter-spacing: var(--letter-spacing-1);
+
+  width: 38rem;
+
+  border-radius: var(--primary-border-radius);
+  border: 2px solid var(--primary-pink-color);
+
+  padding: 1.5rem;
+}
+
+/***************************************** 
+----------- 4-ABOUT ME SECTION ----------
+*****************************************/
+.about-me {
+  height: 80rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7rem;
+
+  background-color: var(--background--1);
+}
+
+.about-me img {
+  height: auto;
+  width: 430px;
+}
+
+.about-me__content {
+  width: 50rem;
+}
+
+.about-me__content h2 {
+  font-size: 6rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-me__job {
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-me__text {
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 1.4;
+
+  margin-bottom: 5rem;
+
+  color: var(--primary-purple-color);
+}
+
+/***************************************** 
+------------ 5-SERVICES SECTION ----------
+*****************************************/
+.services {
+  height: 70rem;
+
+  text-align: center;
+
+  background-color: var(--background--2);
+}
+
+.services h2 {
+  font-size: 7rem;
+
+  padding-top: 6%;
+  margin-bottom: 4rem;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.card {
+  height: 40rem;
+  width: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: var(--primary-border-radius);
+
+  padding-top: 3%;
+
+  background-color: var(--background--1);
+}
+
+.card i {
+  font-size: 5rem;
+
+  margin-bottom: 2rem;
+
+  color: var(--primary-pink-color);
+}
+
+.card__title {
+  font-size: 2.5rem;
+
+  margin-bottom: 3rem;
+}
+
+.card__text {
+  font-size: 1.7rem;
+  line-height: 1.6;
+
+  width: 70%;
+
+  margin-bottom: 2rem;
+
+  color: var(--primary-purple-color);
+}
+
+/***************************************** 
+------------- 6-CTA SECTION --------------
+*****************************************/
+.cta {
+  height: 30rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background--1);
+}
+
+.cta h2 {
+  font-size: 3rem;
+
+  margin-bottom: 2rem;
+}
+
+/***************************************** 
+---------- 7-FOOTER SECTION --------------
+*****************************************/
+footer {
+  height: 40rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background--2);
+}
+
+footer h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+footer p {
+  font-size: 1.7rem;
+
+  text-align: center;
+  line-height: 1.5;
+
+  width: 500px;
+}
+
+.footer__list {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  list-style: none;
+
+  margin-top: 2rem;
+}
+
+.footer__item {
+  height: 50px;
+  width: 50px;
+
+  font-size: 2.2rem;
+  text-align: center;
+
+  padding: 1.5rem;
+
+  border-radius: 50%;
+
+  background-color: var(--primary-pink-color);
+}
+
+/***************************************** 
+--------------- 8-BUTTONS ------------------
+*****************************************/
+.button,
+.button--hero,
+.button--subscribe {
+  font-weight: bold;
+  border: none;
+  border-radius: var(--primary-border-radius);
+}
+
+.button {
+  font-size: 1.7rem;
+  text-decoration: none;
+
+  padding: 1rem 2rem;
+
+  background-color: var(--primary-pink-color);
+
+  transition: var(--primary-transition);
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.button--subscribe:hover,
+.button--cta:hover {
+  transform: scale(1.2);
+}
+
+.button--hero {
+  position: absolute;
+  bottom: 5px;
+  right: 8px;
+
+  padding: 1.2rem 2rem;
+
+  background-color: var(--secondary-pink-color);
+
+  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
