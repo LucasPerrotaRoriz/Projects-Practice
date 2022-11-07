@@ -1,145 +1,236 @@
 :root {
-  --background--1: rgb(25, 25, 25);
-  --background--2: rgb(10, 10, 10);
+  --primary-color: hsl(341, 100%, 49%);
+  --background-color-1: hsl(0, 0%, 10%);
+  --background-color-2: hsl(0, 0%, 6%);
 
-  --primary-pink-color: rgb(249, 0, 77);
-  --primary-purple-color: rgb(255, 204, 255);
-  --secondary-pink-color: rgb(224, 0, 69);
-  --white-color: rgb(255, 255, 255);
+  --text-color-1: hsl(0, 0%, 100%);
+  --text-color-2: hsl(300, 100%, 90%);
 
-  --button-hover-color: rgb(224, 0, 69);
-
-  --letter-spacing-1: 1px;
-  --letter-spacing-2: 2px;
-  --letter-spacing-3: 3px;
-
-  --primary-transition: 0.4s;
-
-  --primary-border-radius: 3rem;
+  --border-radius-1: 30px;
 }
 
-/* TABLE OF CONTENTS 
-    1-GLOBAL STYLES
-    2-UTILITY STYLES
-    3-HERO SECTION
-    4-ABOUT ME SECTION
-    5-SERVICES SECTION
-    6-CTA SECTION
-    7-FOOTER SECTION  
-    8-BUTTON   
-*/
-
-/***************************************** 
-------------- 1-GLOBAL STYLES --------------
-*****************************************/
-* {
-  padding: 0;
-  margin: 0;
+/* ##### BEGINNING OF RESET ##### */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-
-  font-family: "Josefin Sans", sans-serif;
-
-  color: var(--white-color);
 }
 
-*:focus {
-  outline: none;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ##### END OF RESET ##### */
+
+/* ##### GENERAL STYLES ##### */
 html {
-  font-size: 62.5%;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
+  font-family: "Josefin Sans", sans-serif;
+  color: var(--text-color-1);
 }
 
-/***************************************** 
-------------- 2-UTILITY STYLES --------------
-*****************************************/
-.highlight {
-  color: var(--primary-pink-color);
+a,
+input[type="submit"] {
+  color: var(--text-color-1);
 }
 
-/***************************************** 
------------- 3-HERO SECTION --------------
-*****************************************/
+a {
+  text-decoration: none;
+}
+
+.primary-heading {
+  font-size: 3rem;
+}
+
+.secondary-heading {
+  font-size: 2.5rem;
+}
+
+.tertiary-heading {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  justify-content: center;
+}
+
+.grid--1 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* ##### HERO SECTION ##### */
 .hero {
+  position: relative;
   height: 100vh;
   width: 100vw;
-
-  background-image: url(../img/background.jpg);
+  background: rgba(0, 0, 0, 0.3) url(../img/background.jpg);
   background-position: center;
   background-size: cover;
-
-  padding-left: 8%;
-  padding-right: 8%;
-
-  position: relative;
-}
-
-.hero__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-top: 2%;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  padding: 5% 5% 0% 5%;
 }
 
 .hero__logo {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
-  letter-spacing: var(--letter-spacing-1);
+  z-index: 999;
 }
 
-.hero__navigation {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
-.hero__list {
-  list-style-type: none;
-
+nav {
   display: flex;
-  gap: 7rem;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
 }
 
-.hero__link {
-  text-decoration: none;
-
-  transition: var(--primary-transition);
+.hero__navigation li {
+  display: none;
+  list-style-type: none;
+  padding-right: 1rem;
 }
 
-.hero__link:hover {
-  color: var(--primary-pink-color);
+.hamburger {
+  position: relative;
+  display: block;
+  width: 35px;
+  cursor: pointer;
+
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  z-index: 999;
+}
+
+.hamburger .bar,
+.hamburger:after,
+.hamburger:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.hamburger.is-active:before {
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.hamburger.is-active:after {
+  transform: rotate(45deg) translate(-7px, -4px);
+}
+
+.hamburger.is-active .bar {
+  opacity: 0;
+}
+
+.hero__navigation--mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 98;
+  background-color: var(--background-color-1);
+  transform: translateX(100%);
+  transition: .4s;
+}
+
+.is-active--mobile {
+  transform: translateX(0%);
+}
+
+.hero__navigation--mobile a {
+  padding-bottom: 1rem;
 }
 
 .hero__content {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.hero__hello {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  letter-spacing: var(--letter-spacing-3);
-
-  margin-bottom: 1.5rem;
-
-  color: var(--primary-purple-color);
+  margin-top: 2rem;
 }
 
-.hero__heading {
-  font-size: 8rem;
-  letter-spacing: var(--letter-spacing-1);
-  
-  margin-bottom: 1rem;
-}
-
-.hero__heading + p {
-  font-size: 2.5rem;
-  font-weight: bold;
-  letter-spacing: var(--letter-spacing-2);
-
-  margin-bottom: 4rem;
+.hero__name {
+  color: var(--text-color-2);
 }
 
 .hero__form {
@@ -147,235 +238,255 @@ html {
 }
 
 .hero__email {
-  font-family: inherit;
-  letter-spacing: var(--letter-spacing-1);
-
-  width: 38rem;
-
-  border-radius: var(--primary-border-radius);
-  border: 2px solid var(--primary-pink-color);
-
-  padding: 1.5rem;
+  font-weight: normal;
+  width: 15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius-1);
+  border: 2px solid var(--primary-color);
 }
 
-/***************************************** 
------------ 4-ABOUT ME SECTION ----------
-*****************************************/
-.about-me {
-  height: 80rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7rem;
-
-  background-color: var(--background--1);
+.hero__email::placeholder {
+  font-size: 0.8rem;
+  padding-left: 3%;
 }
 
-.about-me img {
-  height: auto;
-  width: 430px;
+/* ##### ABOUT ME SECTION ##### */
+.about {
+  padding-bottom: 2rem;
+  background-color: var(--background-color-1);
 }
 
-.about-me__content {
-  width: 50rem;
+.about__img {
+  max-width: 100%;
+  width: 400px;
+  padding: 1.5rem 1rem 0 1rem;
+  margin: 0 auto;
 }
 
-.about-me__content h2 {
-  font-size: 6rem;
-  margin-bottom: 2.5rem;
+.about__img img {
+  border-radius: var(--border-radius-1);
 }
 
-.about-me__job {
-  font-size: 3rem;
-  margin-bottom: 2.5rem;
-}
-
-.about-me__text {
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1.4;
-
-  margin-bottom: 5rem;
-
-  color: var(--primary-purple-color);
-}
-
-/***************************************** 
------------- 5-SERVICES SECTION ----------
-*****************************************/
-.services {
-  height: 70rem;
-
-  text-align: center;
-
-  background-color: var(--background--2);
-}
-
-.services h2 {
-  font-size: 7rem;
-
-  padding-top: 6%;
-  margin-bottom: 4rem;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-}
-
-.card {
-  height: 40rem;
-  width: 40rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  border-radius: var(--primary-border-radius);
-
-  padding-top: 3%;
-
-  background-color: var(--background--1);
-}
-
-.card i {
-  font-size: 5rem;
-
-  margin-bottom: 2rem;
-
-  color: var(--primary-pink-color);
-}
-
-.card__title {
-  font-size: 2.5rem;
-
-  margin-bottom: 3rem;
-}
-
-.card__text {
-  font-size: 1.7rem;
-  line-height: 1.6;
-
-  width: 70%;
-
-  margin-bottom: 2rem;
-
-  color: var(--primary-purple-color);
-}
-
-/***************************************** 
-------------- 6-CTA SECTION --------------
-*****************************************/
-.cta {
-  height: 30rem;
-
+.about__content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  background-color: var(--background--1);
-}
-
-.cta h2 {
-  font-size: 3rem;
-
-  margin-bottom: 2rem;
-}
-
-/***************************************** 
----------- 7-FOOTER SECTION --------------
-*****************************************/
-footer {
-  height: 40rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: var(--background--2);
-}
-
-footer h2 {
-  font-size: 3.5rem;
-  margin-bottom: 2rem;
-}
-
-footer p {
-  font-size: 1.7rem;
-
-  text-align: center;
-  line-height: 1.5;
-
-  width: 500px;
-}
-
-.footer__list {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-
-  list-style: none;
-
   margin-top: 2rem;
 }
 
-.footer__item {
-  height: 50px;
-  width: 50px;
+.about__text {
+  display: inline-block;
+  line-height: 1.5;
+  width: 80%;
+  padding-inline: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color-2);
+}
 
-  font-size: 2.2rem;
+/* ##### SERVICES SECTION ##### */
+.services {
+  background-color: var(--background-color-2);
+  padding-bottom: 3rem;
+}
+
+.services h2 {
   text-align: center;
+  padding-top: 2rem;
+}
 
+.card {
+  text-align: center;
   padding: 1.5rem;
-
-  border-radius: 50%;
-
-  background-color: var(--primary-pink-color);
+  margin: 1.5rem;
+  border-radius: var(--border-radius-1);
+  background-color: var(--background-color-1);
 }
 
-/***************************************** 
---------------- 8-BUTTONS ------------------
-*****************************************/
-.button,
-.button--hero,
-.button--subscribe {
-  font-weight: bold;
-  border: none;
-  border-radius: var(--primary-border-radius);
+.card__icon {
+  height: 2.5rem;
+  width: 2.5rem;
+  color: var(--primary-color);
 }
 
-.button {
-  font-size: 1.7rem;
-  text-decoration: none;
-
-  padding: 1rem 2rem;
-
-  background-color: var(--primary-pink-color);
-
-  transition: var(--primary-transition);
+.card__title,
+.card__text {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 }
 
-.button:hover {
-  background-color: var(--button-hover-color);
+.card__text {
+  padding-bottom: 0.7rem;
+  color: var(--text-color-2);
 }
 
-.button--subscribe:hover,
-.button--cta:hover {
+/* ##### CTA SECTION ##### */
+.cta {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: var(--background-color-1);
+}
+
+/* ##### FOOTER SECTION ##### */
+.footer {
+  background-color: var(--background-color-2);
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+
+.footer__name {
+  font-size: 1.5rem;
+}
+
+.footer__text {
+  width: 70%;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer__icon {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin-bottom: 1.2rem;
+  border-radius: var(--border-radius-1);
+  background-color: var(--primary-color);
+}
+
+.footer__icon:hover {
   transform: scale(1.2);
 }
 
-.button--hero {
-  position: absolute;
-  bottom: 5px;
-  right: 8px;
+.copyright {
+  color: var(--primary-color);
+}
 
-  padding: 1.2rem 2rem;
+/* ##### BUTTONS ##### */
+.btn {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+}
 
-  background-color: var(--secondary-pink-color);
+.btn--subscribe {
+  display: none;
+}
 
-  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+.btn--start {
+  padding: 0.5rem 2rem;
+  box-shadow: 0px 0px 10px #858585;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ##### UTILITY ##### */
+.highlight {
+  color: var(--primary-color);
+}
+
+/* ##### MEDIA QUERIES ##### */
+@media only screen and (min-width: 901px) {
+  .hamburger {
+    display: none;
+  }
+
+  .hero__navigation li {
+    display: inline-block;
+    padding-right: 1.5rem;
+  }
+
+  .hero__content {
+    margin-top: 3rem;
+  }
+
+  .about__container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about__img {
+    max-width: 40%;
+    margin-right: 0;
+  }
+
+  .about__content {
+    width: 60%;
+  }
+
+  .cta {
+    padding: 2.5rem;
+  }
+
+  .btn--subscribe {
+    display: inline-block;
+  }
+
+  .btn--subscribe:hover {
+    transform: scale(1.2);
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  html {
+    font-size: 1.2rem;
+  }
+
+  .hero {
+    padding-top: 2%;
+  }
+
+  .about__container,
+  .services,
+  .footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .about__img {
+    min-width: 500px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  html {
+    font-size: 1.4rem;
+  }
+
+  .about__container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .about__img {
+    min-width: 700px;
+  }
+
+  .about__content {
+    margin-left: -5rem;
+  }
 }
