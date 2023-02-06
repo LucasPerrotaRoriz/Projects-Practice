@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Muli&display=swap");
+
+*,
+*::after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    background-color: rgb(37, 78, 190);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    max-width: 60rem;
+    padding: 4.8rem 5.6rem;
+    border-radius: 10px;
+    background-color: rgb(224, 224, 224);
+    box-shadow: 3px 3px 8px rgba(8, 21, 65, .15);
+}
+
+form {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    gap: 1.6rem;
+}
+
+.country-input {
+    font-size: 1.6rem;
+    padding: .5rem;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 2px solid rgb(71, 101, 184);
+}
+
+.country-input:focus {
+    outline: none;
+}
+
+.country-input::placeholder {
+    font-family: inherit;
+    font-size: 1.4rem;
+}
+
+.btn {
+    font-size: 1.4rem;
+    padding: 1.2rem 3.2rem;
+    border: none;
+    border-radius: 50px;
+    background-color: rgb(37, 78, 190);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.btn:hover {
+    background-color: rgb(27, 55, 133);;
+}
+
+.btn:active {
+    transform: scale(1.05);
+}
+
+.error {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-block-start: 1.6rem;
+    color: rgb(226, 48, 48);
+}
+
+.country-flag {
+    display: block;
+    width: 60%;
+    min-width: 15rem;
+    margin: 3.2rem auto 1rem;
+}
+
+.country-name {
+    font-size: 3.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-block-end: 1.6rem;
+    color: rgb(0, 0, 0);
+}
+
+.country-row {
+    font-size: 1.6rem;
+    margin-block-end: 1.6rem;
+    color: rgb(77, 76, 76);
+}
+
+.country-row span {
+    margin-inline-end: .5rem;
+    color: rgb(0, 0, 0);
+}
